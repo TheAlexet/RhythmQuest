@@ -90,6 +90,9 @@ public class Game : MonoBehaviour
 			database.SavePlayerData(jugador);
 			database.SaveSiguienteConversacion(0);
 			database.SaveFirstTime(false);
+			database.SaveObjetosRecogidos(0);
+			musicaMalarcier.GetComponent<AudioSource>().Stop();
+			hole.SetActive(false);
 		}
 		else
 		{
@@ -225,6 +228,7 @@ public class Game : MonoBehaviour
 			SavePickedUpItems();
 			Destroy(objetoColisionado);
 			CloseMensajePickUp();
+			database.SaveObjetosRecogidos(database.LoadObjetosRecogidos() + 1);
 		}
 		else
 		{
@@ -255,27 +259,37 @@ public class Game : MonoBehaviour
 		if (item.Equals("PocionXP"))
 		{
 			jugador.GainXP(50);
-			xpBar.UpdateXPBar(jugador);
 			playerMenu.UpdateStats(jugador);
 			database.SavePlayerData(jugador);
 			nivelText.GetComponent<Text>().text = jugador.GetLevel().ToString();
+			hpBar.UpdateHPBar(jugador);
 		}
 	}
 
 	void TalkToNpc()
 	{
-		if (jugador.GetListaObjetos().Count >= 3 && database.LoadSiguienteConversacion() == 1)
+		if (database.LoadObjetosRecogidos() >= 3 && database.LoadSiguienteConversacion() == 1 && !database.LoadMisionCompletada())
 		{
 			database.SaveMisionCompletada(true);
 			database.SaveSiguienteConversacion(database.LoadSiguienteConversacion() + 1);
 		}
+		else if (database.LoadChF1().Equals("false") && database.LoadChF2().Equals("false") && database.LoadChF3().Equals("false") && database.LoadChF4().Equals("false") && database.LoadChF1().Equals("false") && database.LoadSiguienteConversacion() == 2 && !database.LoadMisionCompletada())
+		{
+			database.SaveMisionCompletada(true);
+			database.SaveSiguienteConversacion(database.LoadSiguienteConversacion() + 1);
+		}
+		else if (database.LoadTr1().Equals("false") && database.LoadSiguienteConversacion() == 3 && !database.LoadMisionCompletada())
+		{
+			database.SaveMisionCompletada(true);
+			database.SaveSiguienteConversacion(database.LoadSiguienteConversacion() + 1);
+		}
+
 		int siguienteConversacion = database.LoadSiguienteConversacion();
 		Npc npc = npcColisionado.GetComponent<Npc>();
 		mensajeConversacion.SetActive(true);
 		if (database.LoadMisionCompletada())
 		{
 			UpdateMision(0);
-			Debug.Log(siguienteConversacion);
 			textoConversacion.text = npc.conversacion[siguienteConversacion][0];
 			mensajeActualConversacion = 1;
 		}
@@ -290,7 +304,6 @@ public class Game : MonoBehaviour
 		if (database.LoadMisionCompletada())
 		{
 			int siguienteConversacion = database.LoadSiguienteConversacion();
-			Debug.Log(siguienteConversacion);
 			Npc npc = npcColisionado.GetComponent<Npc>();
 			if (mensajeActualConversacion == npc.conversacion[siguienteConversacion].Length)
 			{
@@ -445,6 +458,10 @@ public class Game : MonoBehaviour
 	{
 		infoMisionOpen = true;
 		infoMision.SetActive(true);
+		if (!database.LoadMisionCompletada())
+		{
+			UpdateMision(database.LoadSiguienteConversacion());
+		}
 	}
 
 	public void CloseInfoMision()
@@ -470,12 +487,9 @@ public class Game : MonoBehaviour
 
 	void UpdateMision(int mision)
 	{
+		Debug.Log(database.LoadSiguienteConversacion());
 		switch (mision)
 		{
-			case 0:
-				tituloInfoMision.text = "Vacio";
-				textoInfoMision.text = "No hay ninguna mision disponible.";
-				break;
 			case 1:
 				tituloInfoMision.text = "Prueba 1: Consigue provisiones";
 				textoInfoMision.text = "El anciano te ha pedido que encuentres 3 objetos por la zona que te ayuden en tu aventura. Habla con el cuando los consigas.";
@@ -489,6 +503,8 @@ public class Game : MonoBehaviour
 				textoInfoMision.text = "Para tu ultima prueba tendras que derrotar a la Trifauces que ha aparecido en la zona. Habla con el anciano despues de derrotarla.";
 				break;
 			default:
+				tituloInfoMision.text = "Vacio";
+				textoInfoMision.text = "No hay ninguna mision disponible.";
 				break;
 		}
 	}
@@ -644,29 +660,12 @@ public class Game : MonoBehaviour
 		if (database.LoadSc1().Equals("false"))
 		{
 			scarab.SetActive(false);
+			if (database.LoadSiguienteConversacion() == 5)
+			{
+				musicaMalarcier.GetComponent<AudioSource>().Play();
+				hole.SetActive(true);
+			}
 		}
-
-
-		if (database.LoadChF1().Equals("false") && database.LoadChF2().Equals("false") && database.LoadChF3().Equals("false") && database.LoadChF4().Equals("false") && database.LoadChF1().Equals("false") && database.LoadSiguienteConversacion() == 2)
-		{
-			database.SaveMisionCompletada(true);
-			database.SaveSiguienteConversacion(database.LoadSiguienteConversacion() + 1);
-		}
-		else if (database.LoadTr1().Equals("false") && database.LoadSiguienteConversacion() == 3)
-		{
-			database.SaveMisionCompletada(true);
-			database.SaveSiguienteConversacion(database.LoadSiguienteConversacion() + 1);
-		}
-		else if (database.LoadSc1().Equals("false") && (database.LoadSiguienteConversacion() == 4 || database.LoadSiguienteConversacion() == 5))
-		{
-			EndGame();
-		}
-	}
-
-	void EndGame()
-	{
-		musicaMalarcier.GetComponent<AudioSource>().Play();
-		hole.SetActive(true);
 	}
 
 	void InitializeEnemies()

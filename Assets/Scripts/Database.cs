@@ -253,6 +253,16 @@ public class Database : MonoBehaviour
         }
     }
 
+    public void SaveObjetosRecogidos(int num)
+    {
+        PlayerPrefs.SetInt("objetosRecogidos", num);
+    }
+
+    public int LoadObjetosRecogidos()
+    {
+        return PlayerPrefs.GetInt("objetosRecogidos", 0);
+    }
+
     //---------------------------------------------------------------------Pociones de vida
     public void SaveHP1(string value)
     {
