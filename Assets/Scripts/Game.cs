@@ -44,11 +44,14 @@ public class Game : MonoBehaviour
 	public GameObject objetoColisionado;
 	public GameObject npcColisionado;
 
-	bool mensajePickUpOpen;
-	bool mensajeInventarioLlenoOpen;
-	bool mensajeHablarOpen;
-	bool mensajeMisionOpen;
-	bool infoMisionOpen;
+	bool mensajePickUpOpen = false;
+	bool mensajeInventarioLlenoOpen = false;
+	bool mensajeHablarOpen = false;
+	bool mensajeMisionOpen = false;
+	bool infoMisionOpen = false;
+	bool playerMenuOpen = false;
+	bool inventoryOpen = false;
+	bool confirmacionSalidaOpen = false;
 
 	Vector3 posicion;
 
@@ -175,18 +178,47 @@ public class Game : MonoBehaviour
 		{
 			TalkToNpc();
 		}
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			Cursor.visible = false;
+			Cursor.lockState = CursorLockMode.Locked;
+
+			Debug.Log("Menu " + playerMenuOpen);
+			Debug.Log("Inventario " + inventoryOpen);
+			Debug.Log("InfoMision " + infoMisionOpen);
+			Debug.Log("Salida " + confirmacionSalidaOpen);
+			Debug.Log("MensajeMision " + mensajeMisionOpen);
+			if (playerMenuOpen || inventoryOpen || infoMisionOpen || confirmacionSalidaOpen || mensajeMisionOpen)
+			{
+				Debug.Log("algo");
+				playerMenu.ClosePlayerMenu();
+				inventoryMenu.CloseInventory();
+				CloseInfoMision();
+				CloseMensajeMision();
+				CloseConfirmacionSalida();
+			}
+			else
+			{
+				Debug.Log("nada");
+				OpenConfirmacionSalida();
+			}
+		}
 	}
 
 	public void PlayerMenu()
 	{
 		inventoryMenu.CloseInventory();
+		inventoryOpen = false;
 		CloseInfoMision();
+		CloseConfirmacionSalida();
 		if (!playerMenu.IsOpen())
 		{
+			playerMenuOpen = true;
 			playerMenu.OpenPlayerMenu();
 		}
 		else
 		{
+			playerMenuOpen = false;
 			playerMenu.ClosePlayerMenu();
 		}
 	}
@@ -194,13 +226,17 @@ public class Game : MonoBehaviour
 	public void Inventory()
 	{
 		playerMenu.ClosePlayerMenu();
+		playerMenuOpen = false;
 		CloseInfoMision();
+		CloseConfirmacionSalida();
 		if (!inventoryMenu.IsOpen())
 		{
+			inventoryOpen = true;
 			inventoryMenu.OpenInventory();
 		}
 		else
 		{
+			inventoryOpen = false;
 			inventoryMenu.CloseInventory();
 		}
 	}
@@ -208,7 +244,10 @@ public class Game : MonoBehaviour
 	public void Mision()
 	{
 		playerMenu.ClosePlayerMenu();
+		playerMenuOpen = false;
 		inventoryMenu.CloseInventory();
+		inventoryOpen = false;
+		CloseConfirmacionSalida();
 		if (!infoMisionOpen)
 		{
 			OpenInfoMision();
@@ -216,6 +255,23 @@ public class Game : MonoBehaviour
 		else
 		{
 			CloseInfoMision();
+		}
+	}
+
+	public void Salida()
+	{
+		playerMenu.ClosePlayerMenu();
+		playerMenuOpen = false;
+		inventoryMenu.CloseInventory();
+		inventoryOpen = false;
+		CloseInfoMision();
+		if (!confirmacionSalidaOpen)
+		{
+			OpenConfirmacionSalida();
+		}
+		else
+		{
+			CloseConfirmacionSalida();
 		}
 	}
 
@@ -472,11 +528,13 @@ public class Game : MonoBehaviour
 
 	public void OpenConfirmacionSalida()
 	{
+		confirmacionSalidaOpen = true;
 		confirmacionSalida.SetActive(true);
 	}
 
 	public void CloseConfirmacionSalida()
 	{
+		confirmacionSalidaOpen = false;
 		confirmacionSalida.SetActive(false);
 	}
 
@@ -487,7 +545,6 @@ public class Game : MonoBehaviour
 
 	void UpdateMision(int mision)
 	{
-		Debug.Log(database.LoadSiguienteConversacion());
 		switch (mision)
 		{
 			case 1:

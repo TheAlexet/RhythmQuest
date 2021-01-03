@@ -29,13 +29,13 @@ public class Enemy : MonoBehaviour
 		if (name.Equals("Champimudo"))
 		{
 			attack = 1;
-			maxHP = 50;
-			currentHP = 50;
+			maxHP = 30;
+			currentHP = 30;
 			xpGiven = 20;
 		}
 		else if (name.Equals("ChampimudoFurioso"))
 		{
-			attack = 4;
+			attack = 3;
 			maxHP = 50;
 			currentHP = 50;
 			xpGiven = 50;
@@ -43,8 +43,8 @@ public class Enemy : MonoBehaviour
 		else if (name.Equals("Florhada"))
 		{
 			attack = 3;
-			maxHP = 30;
-			currentHP = 30;
+			maxHP = 20;
+			currentHP = 20;
 			xpGiven = 30;
 		}
 		else if (name.Equals("Trifauces"))
