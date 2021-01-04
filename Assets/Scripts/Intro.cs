@@ -36,6 +36,18 @@ public class Intro : MonoBehaviour
         counter = 1;
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown("f"))
+        {
+            BotonHandler();
+            if (botonSi.active)
+            {
+                ButtonSi();
+            }
+        }
+    }
+
     public void BotonHandler()
     {
         switch (counter)

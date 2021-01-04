@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class Game : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class Game : MonoBehaviour
 
 	public GameObject inventoryMenuObject;
 	InventoryMenu inventoryMenu;
+
+	public GameObject objectInfoObject;
+	public GameObject controlesObject;
 
 	public Text nivelText;
 
@@ -52,6 +56,9 @@ public class Game : MonoBehaviour
 	bool playerMenuOpen = false;
 	bool inventoryOpen = false;
 	bool confirmacionSalidaOpen = false;
+	bool objectInfoOpen = false;
+	bool conversacionOpen = false;
+	bool controlesOpen = false;
 
 	Vector3 posicion;
 
@@ -70,6 +77,9 @@ public class Game : MonoBehaviour
 
 	public GameObject musicaMalarcier;
 
+	public GameObject camara;
+	CinemachineFreeLook vcam;
+
 	void Start()
 	{
 		database = databaseObject.GetComponent<Database>();
@@ -79,6 +89,7 @@ public class Game : MonoBehaviour
 		InitializeInterface();
 		DestroyPickUps();
 		objetoColisionado = null;
+		vcam = camara.GetComponent<CinemachineFreeLook>();
 	}
 
 	void CheckState()
@@ -96,6 +107,7 @@ public class Game : MonoBehaviour
 			database.SaveObjetosRecogidos(0);
 			musicaMalarcier.GetComponent<AudioSource>().Stop();
 			hole.SetActive(false);
+			OpenControles();
 		}
 		else
 		{
@@ -114,7 +126,7 @@ public class Game : MonoBehaviour
 				DestroyEnemy();
 				jugador.SetHP(jugador.GetMaxHP());
 				GetComponent<CharacterController>().enabled = false;
-				GameObject.Find("Player").transform.position = new Vector3(65.98f, 1.2f, 60.803f);
+				GameObject.Find("Player").transform.position = new Vector3(61.16f, 1.69f, 60.57f);
 				GetComponent<CharacterController>().enabled = true;
 			}
 		}
@@ -150,59 +162,117 @@ public class Game : MonoBehaviour
 		CloseInfoMision();
 		UpdateMision(0);
 		CloseConfirmacionSalida();
+
+		//DeshabilitarCursor();
 	}
 
 
 	void Update()
 	{
+		if (mensajeConversacion.active)
+		{
+			conversacionOpen = true;
+		}
+		else 
+		{
+			conversacionOpen = false;
+		}
 		if (Input.GetKeyDown("c"))
 		{
+			//HabilitarCursor();
 			PlayerMenu();
 		}
 		
 		if (Input.GetKeyDown("i"))
 		{
+			//HabilitarCursor();
 			Inventory();
 		}
-
 		if (Input.GetKeyDown("n"))
 		{
+			//HabilitarCursor();
 			Mision();
 		}
-
-		if (Input.GetKeyDown("f") && objetoColisionado != null)
+		if (Input.GetKeyDown("v"))
 		{
-			PickUpItem();
+			//HabilitarCursor();
+			Controles();
 		}
-		if (Input.GetKeyDown("f") && npcColisionado != null)
+		if(npcColisionado == null)
+        {
+			CloseMensajeMision();
+        }
+		if (Input.GetKeyDown("f"))
 		{
-			TalkToNpc();
+			if (objetoColisionado != null)
+			{
+				PickUpItem();
+			}
+			if (npcColisionado != null && !conversacionOpen && !mensajeMisionOpen)
+			{
+				TalkToNpc();
+			}
+			if (confirmacionSalidaOpen)
+			{
+				CloseGame();
+			}
+			if (mensajeMisionOpen)
+			{
+				Debug.Log("MisionAceptada");
+				AceptarMisionHandler();
+			}
+			if (conversacionOpen)
+			{
+				AceptarConversacionHandler();
+			}
 		}
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
-			Cursor.visible = false;
-			Cursor.lockState = CursorLockMode.Locked;
-
-			Debug.Log("Menu " + playerMenuOpen);
-			Debug.Log("Inventario " + inventoryOpen);
-			Debug.Log("InfoMision " + infoMisionOpen);
-			Debug.Log("Salida " + confirmacionSalidaOpen);
-			Debug.Log("MensajeMision " + mensajeMisionOpen);
-			if (playerMenuOpen || inventoryOpen || infoMisionOpen || confirmacionSalidaOpen || mensajeMisionOpen)
+			if (playerMenuOpen || inventoryOpen || infoMisionOpen || confirmacionSalidaOpen || mensajeMisionOpen || mensajeInventarioLlenoOpen || objectInfoOpen || conversacionOpen || controlesOpen)
 			{
-				Debug.Log("algo");
+				//DeshabilitarCursor();
 				playerMenu.ClosePlayerMenu();
+				playerMenuOpen = false;
 				inventoryMenu.CloseInventory();
+				inventoryOpen = false;
 				CloseInfoMision();
 				CloseMensajeMision();
 				CloseConfirmacionSalida();
+				CloseMensajeInventarioLleno();
+				CloseObjectInfo();
+				CloseConversacion();
+				CloseControles();
 			}
 			else
 			{
-				Debug.Log("nada");
+				//HabilitarCursor();
 				OpenConfirmacionSalida();
 			}
 		}
+		if (playerMenuOpen || inventoryOpen || infoMisionOpen || confirmacionSalidaOpen || mensajeMisionOpen || mensajeInventarioLlenoOpen || objectInfoOpen || conversacionOpen || controlesOpen)
+		{
+			HabilitarCursor();
+			vcam.m_XAxis.m_InputAxisName = "";
+			vcam.m_XAxis.m_MaxSpeed = 0;
+		}
+		else
+		{
+			DeshabilitarCursor();
+			vcam.m_XAxis.m_InputAxisName = "Mouse X";
+			vcam.m_XAxis.m_MaxSpeed = 300;
+		}
+	}
+
+	void HabilitarCursor() 
+	{
+		Cursor.visible = true;
+		Cursor.lockState = CursorLockMode.Confined;
+	}
+
+	void DeshabilitarCursor()
+	{
+		Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Locked;
 	}
 
 	public void PlayerMenu()
@@ -211,6 +281,7 @@ public class Game : MonoBehaviour
 		inventoryOpen = false;
 		CloseInfoMision();
 		CloseConfirmacionSalida();
+		CloseControles();
 		if (!playerMenu.IsOpen())
 		{
 			playerMenuOpen = true;
@@ -218,6 +289,7 @@ public class Game : MonoBehaviour
 		}
 		else
 		{
+			//DeshabilitarCursor();
 			playerMenuOpen = false;
 			playerMenu.ClosePlayerMenu();
 		}
@@ -229,6 +301,7 @@ public class Game : MonoBehaviour
 		playerMenuOpen = false;
 		CloseInfoMision();
 		CloseConfirmacionSalida();
+		CloseControles();
 		if (!inventoryMenu.IsOpen())
 		{
 			inventoryOpen = true;
@@ -236,6 +309,7 @@ public class Game : MonoBehaviour
 		}
 		else
 		{
+			//DeshabilitarCursor();
 			inventoryOpen = false;
 			inventoryMenu.CloseInventory();
 		}
@@ -248,12 +322,14 @@ public class Game : MonoBehaviour
 		inventoryMenu.CloseInventory();
 		inventoryOpen = false;
 		CloseConfirmacionSalida();
+		CloseControles();
 		if (!infoMisionOpen)
 		{
 			OpenInfoMision();
 		}
 		else
 		{
+			//DeshabilitarCursor();
 			CloseInfoMision();
 		}
 	}
@@ -265,13 +341,34 @@ public class Game : MonoBehaviour
 		inventoryMenu.CloseInventory();
 		inventoryOpen = false;
 		CloseInfoMision();
+		CloseControles();
 		if (!confirmacionSalidaOpen)
 		{
 			OpenConfirmacionSalida();
 		}
 		else
 		{
+			//DeshabilitarCursor();
 			CloseConfirmacionSalida();
+		}
+	}
+
+	public void Controles()
+	{
+		playerMenu.ClosePlayerMenu();
+		playerMenuOpen = false;
+		inventoryMenu.CloseInventory();
+		inventoryOpen = false;
+		CloseInfoMision();
+		CloseConfirmacionSalida();
+		if (!controlesOpen)
+		{
+			OpenControles();
+		}
+		else
+		{
+			//DeshabilitarCursor();
+			CloseControles();
 		}
 	}
 
@@ -524,6 +621,42 @@ public class Game : MonoBehaviour
 	{
 		infoMisionOpen = false;
 		infoMision.SetActive(false);
+	}
+
+	public void OpenObjectInfo() 
+	{
+		objectInfoOpen = true;
+		objectInfoObject.SetActive(true);
+	}
+
+	public void CloseObjectInfo()
+	{
+		objectInfoOpen = false;
+		objectInfoObject.SetActive(false);
+	}
+
+	public void OpenConversacion()
+	{
+		conversacionOpen = true;
+		mensajeConversacion.SetActive(true);
+	}
+
+	public void CloseConversacion()
+	{
+		conversacionOpen = false;
+		mensajeConversacion.SetActive(false);
+	}
+
+	public void OpenControles()
+	{
+		controlesOpen = true;
+		controlesObject.SetActive(true);
+	}
+
+	public void CloseControles()
+	{
+		controlesOpen = false;
+		controlesObject.SetActive(false);
 	}
 
 	public void OpenConfirmacionSalida()
