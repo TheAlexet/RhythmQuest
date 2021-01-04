@@ -495,4 +495,117 @@ public class Database : MonoBehaviour
         return PlayerPrefs.GetString("sc1", "true");
     }
 
+
+
+    //-------------------------------------------------------------------------Desierto Espejismo-------------------------------------------------------------------------------------------------------
+
+    public void SaveFirstTime2(bool ft)
+    {
+        if (ft)
+        {
+            PlayerPrefs.SetString("firstTime2", "true");
+        }
+        else
+        {
+            PlayerPrefs.SetString("firstTime2", "false");
+        }
+    }
+
+    public bool LoadFirstTime2()
+    {
+        if (PlayerPrefs.GetString("firstTime2", "true").Equals("true"))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    //---------------------------------------------------------------------Pociones de vida
+    public void SaveHP21(string value)
+    {
+        PlayerPrefs.SetString("hp21", value);
+    }
+
+    public string LoadHP21()
+    {
+        return PlayerPrefs.GetString("hp21", "true");
+    }
+
+    public void SaveHP22(string value)
+    {
+        PlayerPrefs.SetString("hp22", value);
+    }
+
+    public string LoadHP22()
+    {
+        return PlayerPrefs.GetString("hp22", "true");
+    }
+
+    public void SaveHP23(string value)
+    {
+        PlayerPrefs.SetString("hp23", value);
+    }
+
+    public string LoadHP23()
+    {
+        return PlayerPrefs.GetString("hp23", "true");
+    }
+
+
+    //---------------------------------------------------------------------Pociones de experiencia
+    public void SaveXP21(string value)
+    {
+        PlayerPrefs.SetString("xp21", value);
+    }
+
+    public string LoadXP21()
+    {
+        return PlayerPrefs.GetString("xp21", "true");
+    }
+
+    public void SaveXP22(string value)
+    {
+        PlayerPrefs.SetString("xp22", value);
+    }
+
+    public string LoadXP22()
+    {
+        return PlayerPrefs.GetString("xp22", "true");
+    }
+
+    //---------------------------------------------------------------------Alaquijones
+    public void SaveAl1(string value)
+    {
+        PlayerPrefs.SetString("al1", value);
+    }
+
+    public string LoadAl1()
+    {
+        return PlayerPrefs.GetString("al1", "true");
+    }
+
+    //---------------------------------------------------------------------Absorbedoras
+    public void SaveAb1(string value)
+    {
+        PlayerPrefs.SetString("ab1", value);
+    }
+
+    public string LoadAb1()
+    {
+        return PlayerPrefs.GetString("ab1", "true");
+    }
+
+    //---------------------------------------------------------------------CabezaCarnivora
+    public void SaveCa1(string value)
+    {
+        PlayerPrefs.SetString("ca1", value);
+    }
+
+    public string LoadCa1()
+    {
+        return PlayerPrefs.GetString("ca1", "true");
+    }
 }

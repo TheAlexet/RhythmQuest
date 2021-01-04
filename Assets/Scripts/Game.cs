@@ -106,7 +106,7 @@ public class Game : MonoBehaviour
 			database.SaveFirstTime(false);
 			database.SaveObjetosRecogidos(0);
 			musicaMalarcier.GetComponent<AudioSource>().Stop();
-			hole.SetActive(false);
+			//hole.SetActive(false);
 			OpenControles();
 		}
 		else
@@ -162,8 +162,6 @@ public class Game : MonoBehaviour
 		CloseInfoMision();
 		UpdateMision(0);
 		CloseConfirmacionSalida();
-
-		//DeshabilitarCursor();
 	}
 
 
@@ -179,23 +177,19 @@ public class Game : MonoBehaviour
 		}
 		if (Input.GetKeyDown("c"))
 		{
-			//HabilitarCursor();
 			PlayerMenu();
 		}
 		
 		if (Input.GetKeyDown("i"))
 		{
-			//HabilitarCursor();
 			Inventory();
 		}
 		if (Input.GetKeyDown("n"))
 		{
-			//HabilitarCursor();
 			Mision();
 		}
 		if (Input.GetKeyDown("v"))
 		{
-			//HabilitarCursor();
 			Controles();
 		}
 		if(npcColisionado == null)
@@ -218,7 +212,6 @@ public class Game : MonoBehaviour
 			}
 			if (mensajeMisionOpen)
 			{
-				Debug.Log("MisionAceptada");
 				AceptarMisionHandler();
 			}
 			if (conversacionOpen)
@@ -230,7 +223,6 @@ public class Game : MonoBehaviour
 		{
 			if (playerMenuOpen || inventoryOpen || infoMisionOpen || confirmacionSalidaOpen || mensajeMisionOpen || mensajeInventarioLlenoOpen || objectInfoOpen || conversacionOpen || controlesOpen)
 			{
-				//DeshabilitarCursor();
 				playerMenu.ClosePlayerMenu();
 				playerMenuOpen = false;
 				inventoryMenu.CloseInventory();
@@ -245,7 +237,6 @@ public class Game : MonoBehaviour
 			}
 			else
 			{
-				//HabilitarCursor();
 				OpenConfirmacionSalida();
 			}
 		}
@@ -289,7 +280,6 @@ public class Game : MonoBehaviour
 		}
 		else
 		{
-			//DeshabilitarCursor();
 			playerMenuOpen = false;
 			playerMenu.ClosePlayerMenu();
 		}
@@ -309,7 +299,6 @@ public class Game : MonoBehaviour
 		}
 		else
 		{
-			//DeshabilitarCursor();
 			inventoryOpen = false;
 			inventoryMenu.CloseInventory();
 		}
@@ -329,7 +318,6 @@ public class Game : MonoBehaviour
 		}
 		else
 		{
-			//DeshabilitarCursor();
 			CloseInfoMision();
 		}
 	}
@@ -348,7 +336,6 @@ public class Game : MonoBehaviour
 		}
 		else
 		{
-			//DeshabilitarCursor();
 			CloseConfirmacionSalida();
 		}
 	}
@@ -367,7 +354,6 @@ public class Game : MonoBehaviour
 		}
 		else
 		{
-			//DeshabilitarCursor();
 			CloseControles();
 		}
 	}
@@ -853,7 +839,8 @@ public class Game : MonoBehaviour
 			if (database.LoadSiguienteConversacion() == 5)
 			{
 				musicaMalarcier.GetComponent<AudioSource>().Play();
-				hole.SetActive(true);
+				//hole.SetActive(true);
+				database.SaveFirstTime2(true);
 			}
 		}
 	}

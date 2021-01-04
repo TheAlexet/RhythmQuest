@@ -61,6 +61,27 @@ public class Enemy : MonoBehaviour
 			currentHP = 500;
 			xpGiven = 500;
 		}
+		else if (name.Equals("Alaguijon"))
+		{
+			attack = 8;
+			maxHP = 100;
+			currentHP = 100;
+			xpGiven = 100;
+		}
+		else if (name.Equals("Absorbedora"))
+		{
+			attack = 6;
+			maxHP = 180;
+			currentHP = 180;
+			xpGiven = 120;
+		}
+		else if (name.Equals("CabezaCarnivora"))
+		{
+			attack = 20;
+			maxHP = 1000;
+			currentHP = 1000;
+			xpGiven = 2000;
+		}
 	}
 
 	//Returns enemy name
