@@ -102,6 +102,12 @@ public class InventoryMenu : MonoBehaviour
         datosObjeto.SetActive(false);
     }
 
+    public void UsarDatosObjeto2()
+    {
+        slots[objetoSeleccionado - 1].SlotUsado2();
+        datosObjeto.SetActive(false);
+    }
+
     public void CloseDatosObjeto()
     {
         datosObjeto.SetActive(false);

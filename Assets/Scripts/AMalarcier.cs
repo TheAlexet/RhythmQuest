@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class AlDesierto : MonoBehaviour
+public class AMalarcier : MonoBehaviour
 {
 
     public GameObject databaseObject;
@@ -18,8 +18,8 @@ public class AlDesierto : MonoBehaviour
     {
         if (col.tag == "Player")
         {
-            database.SaveFirstTime2(true);
-            SceneManager.LoadScene("Desierto Espejismo");
+            database.SaveDesiertoAMalarcier(true);
+            SceneManager.LoadScene("Malarcier");
         }
 
     }

@@ -425,7 +425,7 @@ Transform:
   - {fileID: 1364173707}
   - {fileID: 1550895484}
   m_Father: {fileID: 27871825}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &24325749
 PrefabInstance:
@@ -660,6 +660,7 @@ RectTransform:
   - {fileID: 691166533}
   - {fileID: 1136635279}
   - {fileID: 258646819}
+  - {fileID: 831854006}
   - {fileID: 1941223088}
   - {fileID: 934130031}
   - {fileID: 523116609}
@@ -675,7 +676,6 @@ RectTransform:
   - {fileID: 22565893}
   - {fileID: 2041290915}
   - {fileID: 1652174802}
-  - {fileID: 831854006}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1250,7 +1250,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1100101358}
-        m_MethodName: OnRemoveButton
+        m_MethodName: OnRemoveButton2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1764,7 +1764,7 @@ MonoBehaviour:
   icon: {fileID: 1897399415}
   removeButton: {fileID: 1172129648}
   item: {fileID: 0}
-  game: {fileID: 0}
+  game: {fileID: 1080285017}
   datosObjeto: {fileID: 374199006}
 --- !u!1 &101117751
 GameObject:
@@ -2161,7 +2161,7 @@ MonoBehaviour:
   icon: {fileID: 1586541453}
   removeButton: {fileID: 283298791}
   item: {fileID: 0}
-  game: {fileID: 0}
+  game: {fileID: 1080285017}
   datosObjeto: {fileID: 374199006}
 --- !u!1 &123230499
 GameObject:
@@ -2605,7 +2605,7 @@ RectTransform:
   m_Children:
   - {fileID: 1993953468}
   m_Father: {fileID: 27871825}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3973,7 +3973,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1561005212}
-        m_MethodName: OnRemoveButton
+        m_MethodName: OnRemoveButton2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4260,7 +4260,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 121635083}
-        m_MethodName: OnRemoveButton
+        m_MethodName: OnRemoveButton2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4941,7 +4941,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 142794734}
-        m_MethodName: UsarDatosObjeto
+        m_MethodName: UsarDatosObjeto2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5124,7 +5124,7 @@ RectTransform:
   - {fileID: 358293524}
   - {fileID: 1884761511}
   m_Father: {fileID: 27871825}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5327,8 +5327,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: AceptarMisionHandler
+      - m_Target: {fileID: 1080285017}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5457,7 +5457,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1296966496}
-        m_MethodName: OnRemoveButton
+        m_MethodName: OnRemoveButton2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6320,7 +6320,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1981661607}
-        m_MethodName: OnRemoveButton
+        m_MethodName: OnRemoveButton2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7240,7 +7240,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 27871825}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7290,8 +7290,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Salida
+      - m_Target: {fileID: 1080285020}
+        m_MethodName: Controles
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7809,7 +7809,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 544357347}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.160001, y: 3.683855, z: 142.96411}
+  m_LocalPosition: {x: 7.160001, y: 3.788855, z: 141.54413}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1126079593}
@@ -8648,7 +8648,7 @@ Transform:
   - {fileID: 379184444}
   - {fileID: 930117738}
   m_Father: {fileID: 27871825}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &614416813
 PrefabInstance:
@@ -8870,7 +8870,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2135429019}
-        m_MethodName: OnRemoveButton
+        m_MethodName: OnRemoveButton2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8999,7 +8999,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1904890953}
-        m_MethodName: OnRemoveButton
+        m_MethodName: OnRemoveButton2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9368,7 +9368,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 661648632}
-  m_LocalRotation: {x: -0.12948163, y: 0.98561245, z: -0.10703005, w: 0.018635698}
+  m_LocalRotation: {x: -0.12948163, y: 0.98561245, z: -0.10702983, w: 0.018635716}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -11522,7 +11522,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 27871825}
-  m_RootOrder: 18
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11572,7 +11572,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1080285020}
         m_MethodName: PlayerMenu
         m_Mode: 1
         m_Arguments:
@@ -11869,7 +11869,7 @@ RectTransform:
   - {fileID: 790434828}
   - {fileID: 1472431651}
   m_Father: {fileID: 27871825}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -12936,7 +12936,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 27871825}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -12986,7 +12986,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1080285020}
         m_MethodName: Mision
         m_Mode: 1
         m_Arguments:
@@ -13267,7 +13267,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1638129661}
-        m_MethodName: OnRemoveButton
+        m_MethodName: OnRemoveButton2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13579,7 +13579,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1066770203}
-        m_MethodName: OnRemoveButton
+        m_MethodName: OnRemoveButton2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15933,7 +15933,7 @@ MonoBehaviour:
   icon: {fileID: 1040471810}
   removeButton: {fileID: 946785458}
   item: {fileID: 0}
-  game: {fileID: 0}
+  game: {fileID: 1080285017}
   datosObjeto: {fileID: 374199006}
 --- !u!1 &1076400099
 GameObject:
@@ -16329,12 +16329,12 @@ PrefabInstance:
     - target: {fileID: 1575339426160805228, guid: 0e256c01b63f466458a7ed2e30901d13,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.965
+      value: 1.07
       objectReference: {fileID: 0}
     - target: {fileID: 1575339426160805228, guid: 0e256c01b63f466458a7ed2e30901d13,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 133.52
+      value: 132.1
       objectReference: {fileID: 0}
     - target: {fileID: 1575339426160805228, guid: 0e256c01b63f466458a7ed2e30901d13,
         type: 3}
@@ -16440,7 +16440,7 @@ MonoBehaviour:
   objetoColisionado: {fileID: 0}
   npcColisionado: {fileID: 0}
   databaseObject: {fileID: 1295437598}
-  hole: {fileID: 1971421586}
+  hole: {fileID: 1668837044}
   musicaDesiertoEspejismo: {fileID: 953949917}
   camara: {fileID: 544357347}
 --- !u!1 &1084231684 stripped
@@ -16645,7 +16645,7 @@ MonoBehaviour:
   icon: {fileID: 392738267}
   removeButton: {fileID: 45247329}
   item: {fileID: 0}
-  game: {fileID: 0}
+  game: {fileID: 1080285017}
   datosObjeto: {fileID: 374199006}
 --- !u!1001 &1102631823
 PrefabInstance:
@@ -16820,7 +16820,7 @@ MonoBehaviour:
   icon: {fileID: 1042478876}
   removeButton: {fileID: 1538696867}
   item: {fileID: 0}
-  game: {fileID: 0}
+  game: {fileID: 1080285017}
   datosObjeto: {fileID: 374199006}
 --- !u!1 &1124291904
 GameObject:
@@ -16903,7 +16903,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1080285020}
         m_MethodName: CloseConfirmacionSalida
         m_Mode: 1
         m_Arguments:
@@ -17114,8 +17114,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1126079591}
-  m_LocalRotation: {x: -0.97140265, y: 0.18540028, z: -0.02435403, w: -0.14632338}
-  m_LocalPosition: {x: 0, y: 0, z: -0.6239929}
+  m_LocalRotation: {x: -0.9727267, y: 0.18517001, z: -0.026123604, w: -0.13723163}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 481843813}
@@ -17513,7 +17513,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1449968459}
-        m_MethodName: OnRemoveButton
+        m_MethodName: OnRemoveButton2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17754,7 +17754,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 93732871}
-        m_MethodName: OnRemoveButton
+        m_MethodName: OnRemoveButton2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18302,7 +18302,7 @@ MonoBehaviour:
   icon: {fileID: 1937715647}
   removeButton: {fileID: 1436092774}
   item: {fileID: 0}
-  game: {fileID: 0}
+  game: {fileID: 1080285017}
   datosObjeto: {fileID: 374199006}
 --- !u!4 &1202757208 stripped
 Transform:
@@ -18778,7 +18778,7 @@ MonoBehaviour:
   icon: {fileID: 32752559}
   removeButton: {fileID: 1691785408}
   item: {fileID: 0}
-  game: {fileID: 0}
+  game: {fileID: 1080285017}
   datosObjeto: {fileID: 374199006}
 --- !u!1001 &1247315943
 PrefabInstance:
@@ -19069,7 +19069,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1266711740}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9751bd0448a83f54db59eba60bc99bc4, type: 3}
+  m_Script: {fileID: 11500000, guid: 84dac4e872e9b9149bd7dbf06ebf2ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemigoObject: {fileID: 1266711740}
@@ -19427,8 +19427,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1267218356}
-  m_LocalRotation: {x: 0.002191849, y: 0.99364287, z: -0.110828675, w: 0.01965119}
-  m_LocalPosition: {x: 7.160001, y: 3.683855, z: 142.96411}
+  m_LocalRotation: {x: 0.0021918442, y: 0.99364287, z: -0.11082845, w: 0.019651182}
+  m_LocalPosition: {x: 7.160001, y: 3.788855, z: 141.54413}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -19465,7 +19465,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 27871825}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -19515,7 +19515,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1080285020}
         m_MethodName: Salida
         m_Mode: 1
         m_Arguments:
@@ -19697,7 +19697,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1080285020}
         m_MethodName: CloseControles
         m_Mode: 1
         m_Arguments:
@@ -20149,7 +20149,7 @@ MonoBehaviour:
   icon: {fileID: 1012671426}
   removeButton: {fileID: 387784644}
   item: {fileID: 0}
-  game: {fileID: 0}
+  game: {fileID: 1080285017}
   datosObjeto: {fileID: 374199006}
 --- !u!1001 &1301293014
 PrefabInstance:
@@ -20653,7 +20653,7 @@ MonoBehaviour:
   icon: {fileID: 1076400100}
   removeButton: {fileID: 1537876213}
   item: {fileID: 0}
-  game: {fileID: 0}
+  game: {fileID: 1080285017}
   datosObjeto: {fileID: 374199006}
 --- !u!1 &1333185070
 GameObject:
@@ -20967,7 +20967,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1080285020}
         m_MethodName: CloseInfoMision
         m_Mode: 1
         m_Arguments:
@@ -22062,7 +22062,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1202208485}
-        m_MethodName: OnRemoveButton
+        m_MethodName: OnRemoveButton2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22140,7 +22140,7 @@ RectTransform:
   m_Children:
   - {fileID: 957521197}
   m_Father: {fileID: 27871825}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -22440,7 +22440,7 @@ MonoBehaviour:
   icon: {fileID: 979752670}
   removeButton: {fileID: 1157183423}
   item: {fileID: 0}
-  game: {fileID: 0}
+  game: {fileID: 1080285017}
   datosObjeto: {fileID: 374199006}
 --- !u!1001 &1452211237
 PrefabInstance:
@@ -22631,7 +22631,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470827806}
-  m_LocalRotation: {x: -0.16117768, y: 0.9793979, z: -0.12004718, w: -0.019755995}
+  m_LocalRotation: {x: -0.1611778, y: 0.9793979, z: -0.12004695, w: -0.01975599}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -22720,7 +22720,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1080285020}
         m_MethodName: CloseMensajeInventarioLleno
         m_Mode: 1
         m_Arguments:
@@ -22936,7 +22936,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1475468729}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9751bd0448a83f54db59eba60bc99bc4, type: 3}
+  m_Script: {fileID: 11500000, guid: 84dac4e872e9b9149bd7dbf06ebf2ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemigoObject: {fileID: 1475468729}
@@ -23499,7 +23499,7 @@ RectTransform:
   m_Children:
   - {fileID: 1529159095}
   m_Father: {fileID: 27871825}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -23712,7 +23712,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1332614052}
-        m_MethodName: OnRemoveButton
+        m_MethodName: OnRemoveButton2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23890,7 +23890,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1116514017}
-        m_MethodName: OnRemoveButton
+        m_MethodName: OnRemoveButton2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -24490,7 +24490,7 @@ MonoBehaviour:
   icon: {fileID: 1805151402}
   removeButton: {fileID: 264283385}
   item: {fileID: 0}
-  game: {fileID: 0}
+  game: {fileID: 1080285017}
   datosObjeto: {fileID: 374199006}
 --- !u!1001 &1564539042
 PrefabInstance:
@@ -25058,7 +25058,7 @@ RectTransform:
   - {fileID: 2129688662}
   - {fileID: 1179213978}
   m_Father: {fileID: 27871825}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -25196,7 +25196,7 @@ MonoBehaviour:
   icon: {fileID: 907578632}
   removeButton: {fileID: 941994993}
   item: {fileID: 0}
-  game: {fileID: 0}
+  game: {fileID: 1080285017}
   datosObjeto: {fileID: 374199006}
 --- !u!1001 &1645853744
 PrefabInstance:
@@ -25286,7 +25286,7 @@ Transform:
   - {fileID: 1818872849}
   - {fileID: 1124291905}
   m_Father: {fileID: 27871825}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1652560507
 GameObject:
@@ -25445,6 +25445,165 @@ Transform:
   m_Father: {fileID: 923329836}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1668837043
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 101576954813996068, guid: e613aa07b650b3543b43bb54121353fa,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 101576954813996069, guid: e613aa07b650b3543b43bb54121353fa,
+        type: 3}
+      propertyPath: m_Name
+      value: Hole2
+      objectReference: {fileID: 0}
+    - target: {fileID: 101576954813996069, guid: e613aa07b650b3543b43bb54121353fa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 101576954813996071, guid: e613aa07b650b3543b43bb54121353fa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 101576954813996071, guid: e613aa07b650b3543b43bb54121353fa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5260774
+      objectReference: {fileID: 0}
+    - target: {fileID: 101576954813996071, guid: e613aa07b650b3543b43bb54121353fa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -30.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 101576954813996071, guid: e613aa07b650b3543b43bb54121353fa,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.001184938
+      objectReference: {fileID: 0}
+    - target: {fileID: 101576954813996071, guid: e613aa07b650b3543b43bb54121353fa,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.048741292
+      objectReference: {fileID: 0}
+    - target: {fileID: 101576954813996071, guid: e613aa07b650b3543b43bb54121353fa,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.00005782421
+      objectReference: {fileID: 0}
+    - target: {fileID: 101576954813996071, guid: e613aa07b650b3543b43bb54121353fa,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9988107
+      objectReference: {fileID: 0}
+    - target: {fileID: 101576954813996071, guid: e613aa07b650b3543b43bb54121353fa,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 101576954813996071, guid: e613aa07b650b3543b43bb54121353fa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -0.135
+      objectReference: {fileID: 0}
+    - target: {fileID: 101576954813996071, guid: e613aa07b650b3543b43bb54121353fa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 5.5880003
+      objectReference: {fileID: 0}
+    - target: {fileID: 101576954813996071, guid: e613aa07b650b3543b43bb54121353fa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0.013
+      objectReference: {fileID: 0}
+    - target: {fileID: 101576954813996071, guid: e613aa07b650b3543b43bb54121353fa,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 101576954813996071, guid: e613aa07b650b3543b43bb54121353fa,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 101576954813996071, guid: e613aa07b650b3543b43bb54121353fa,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3656474434339506424, guid: e613aa07b650b3543b43bb54121353fa,
+        type: 3}
+      propertyPath: m_Radius
+      value: 12.533854
+      objectReference: {fileID: 0}
+    - target: {fileID: 3656474434339506424, guid: e613aa07b650b3543b43bb54121353fa,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.24470684
+      objectReference: {fileID: 0}
+    - target: {fileID: 3656474434339506424, guid: e613aa07b650b3543b43bb54121353fa,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.097974114
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8376495273066938023, guid: e613aa07b650b3543b43bb54121353fa, type: 3}
+    - {fileID: 8376495273066938022, guid: e613aa07b650b3543b43bb54121353fa, type: 3}
+    - {fileID: 3656474434339506424, guid: e613aa07b650b3543b43bb54121353fa, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: e613aa07b650b3543b43bb54121353fa, type: 3}
+--- !u!1 &1668837044 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 101576954813996069, guid: e613aa07b650b3543b43bb54121353fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1668837043}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1668837045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668837044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ceb1e5b5e274154982e0bf517944abd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1668837046
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668837044}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 26.160004, y: 14.565774, z: 4.215974}
+  m_Center: {x: 0.000000001808762, y: 5.439508, z: -0.4969132}
+--- !u!54 &1668837047
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668837044}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1686055137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25602,7 +25761,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1237671427}
-        m_MethodName: OnRemoveButton
+        m_MethodName: OnRemoveButton2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26041,7 +26200,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1709004868}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9751bd0448a83f54db59eba60bc99bc4, type: 3}
+  m_Script: {fileID: 11500000, guid: 84dac4e872e9b9149bd7dbf06ebf2ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemigoObject: {fileID: 1709004868}
@@ -27481,7 +27640,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1080285020}
         m_MethodName: CloseGame
         m_Mode: 1
         m_Arguments:
@@ -28645,7 +28804,7 @@ Transform:
   - {fileID: 9204998}
   - {fileID: 1351294016}
   m_Father: {fileID: 27871825}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1869451129
 PrefabInstance:
@@ -29230,7 +29389,7 @@ MonoBehaviour:
   icon: {fileID: 1316147679}
   removeButton: {fileID: 638396840}
   item: {fileID: 0}
-  game: {fileID: 0}
+  game: {fileID: 1080285017}
   datosObjeto: {fileID: 374199006}
 --- !u!1 &1905913347
 GameObject:
@@ -30247,7 +30406,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 27871825}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -30297,7 +30456,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1080285020}
         m_MethodName: Inventory
         m_Mode: 1
         m_Arguments:
@@ -30704,42 +30863,42 @@ PrefabInstance:
     - target: {fileID: 101576954813996069, guid: e613aa07b650b3543b43bb54121353fa,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 101576954813996071, guid: e613aa07b650b3543b43bb54121353fa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.26
+      value: 7.7842636
       objectReference: {fileID: 0}
     - target: {fileID: 101576954813996071, guid: e613aa07b650b3543b43bb54121353fa,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.37
+      value: 1.5316198
       objectReference: {fileID: 0}
     - target: {fileID: 101576954813996071, guid: e613aa07b650b3543b43bb54121353fa,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.78
+      value: 143.5
       objectReference: {fileID: 0}
     - target: {fileID: 101576954813996071, guid: e613aa07b650b3543b43bb54121353fa,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.011457292
+      value: -0.018555207
       objectReference: {fileID: 0}
     - target: {fileID: 101576954813996071, guid: e613aa07b650b3543b43bb54121353fa,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9872605
+      value: 0.04873294
       objectReference: {fileID: 0}
     - target: {fileID: 101576954813996071, guid: e613aa07b650b3543b43bb54121353fa,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.08401327
+      value: -0.000905482
       objectReference: {fileID: 0}
     - target: {fileID: 101576954813996071, guid: e613aa07b650b3543b43bb54121353fa,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.13463753
+      value: 0.9986391
       objectReference: {fileID: 0}
     - target: {fileID: 101576954813996071, guid: e613aa07b650b3543b43bb54121353fa,
         type: 3}
@@ -30749,17 +30908,17 @@ PrefabInstance:
     - target: {fileID: 101576954813996071, guid: e613aa07b650b3543b43bb54121353fa,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 9.728001
+      value: -2.1190002
       objectReference: {fileID: 0}
     - target: {fileID: 101576954813996071, guid: e613aa07b650b3543b43bb54121353fa,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 164.468
+      value: 5.591
       objectReference: {fileID: 0}
     - target: {fileID: 101576954813996071, guid: e613aa07b650b3543b43bb54121353fa,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -0.20700002
       objectReference: {fileID: 0}
     - target: {fileID: 101576954813996071, guid: e613aa07b650b3543b43bb54121353fa,
         type: 3}
@@ -30811,9 +30970,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1971421586}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ceb1e5b5e274154982e0bf517944abd, type: 3}
+  m_Script: {fileID: 11500000, guid: 2202969e931fa754b96f75a5420442e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  databaseObject: {fileID: 1295437598}
 --- !u!65 &1971421588
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30825,8 +30985,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 26.160004, y: 13.789184, z: 3.6601837}
-  m_Center: {x: -0.0000000018602944, y: 5.8278275, z: -0.21901871}
+  m_Size: {x: 26.160004, y: 14.565774, z: 4.215974}
+  m_Center: {x: 0.000000001808762, y: 5.439508, z: -0.4969132}
 --- !u!54 &1971421589
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -31146,7 +31306,7 @@ MonoBehaviour:
   icon: {fileID: 1820479062}
   removeButton: {fileID: 468683170}
   item: {fileID: 0}
-  game: {fileID: 0}
+  game: {fileID: 1080285017}
   datosObjeto: {fileID: 374199006}
 --- !u!1 &1982467080
 GameObject:
@@ -31850,7 +32010,7 @@ Transform:
   - {fileID: 729081777}
   - {fileID: 1279084831}
   m_Father: {fileID: 27871825}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2044346988
 PrefabInstance:
@@ -32779,5 +32939,5 @@ MonoBehaviour:
   icon: {fileID: 1855470444}
   removeButton: {fileID: 637345421}
   item: {fileID: 0}
-  game: {fileID: 0}
+  game: {fileID: 1080285017}
   datosObjeto: {fileID: 374199006}

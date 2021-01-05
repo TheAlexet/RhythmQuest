@@ -44,13 +44,22 @@ public class Initialize : MonoBehaviour
 	}
 
 
-	public void changeScene(string sceneName)
+	public void changeScene()
     {
 		saveName = database.LoadPlayerName();
 		if (saveName != "none")
 		{
 			database.SaveFirstTime(false);
-			UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+			database.SaveDesiertoAMalarcier(false);
+			database.SaveDesdeCombate(false);
+			if (database.LoadMapLevel().Equals("Malarcier"))
+			{
+				UnityEngine.SceneManagement.SceneManager.LoadScene("Malarcier");
+			}
+			else if (database.LoadMapLevel().Equals("Desierto Espejismo"))
+			{
+				UnityEngine.SceneManagement.SceneManager.LoadScene("Desierto Espejismo");
+			}
 		}
     }
 	
@@ -59,6 +68,8 @@ public class Initialize : MonoBehaviour
 		if(inputText.text != "")
 		{
 			database.SaveFirstTime(true);
+			database.SaveDesiertoAMalarcier(false);
+			database.SaveDesdeCombate(false);
 			UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
 		}
     }

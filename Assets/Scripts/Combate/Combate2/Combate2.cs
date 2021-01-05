@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Combate : MonoBehaviour
+public class Combate2 : MonoBehaviour
 {
     bool activeAzul = false;
     bool activeRojo = false;
@@ -18,11 +18,9 @@ public class Combate : MonoBehaviour
     GameObject jugadorObject;
     Player jugador;
 
-    public GameObject champimudoObject;
-    public GameObject champimudoFuriosoObject;
-    public GameObject florhadaObject;
-    public GameObject trifaucesObject;
-    public GameObject scarabObject;
+    public GameObject alaguijonObject;
+    public GameObject absorbedoraObject;
+    public GameObject cabezaCarnivoraObject;
     Enemy enemigo;
 
     public GameObject hpBarObject;
@@ -75,30 +73,20 @@ public class Combate : MonoBehaviour
     void InitializeEnemy()
     {
         string enemyName = database.LoadEnemyName();
-        if (enemyName.Equals("Champimudo"))
+        if (enemyName.Equals("Alaguijon"))
         {
-            champimudoObject.transform.position = new Vector3(51.5f, 2.62f, 56.53f);
-            enemigo = champimudoObject.GetComponent<Enemy>();
+            alaguijonObject.transform.position = new Vector3(9.37f, 1.01f, 25.41f);
+            enemigo = alaguijonObject.GetComponent<Enemy>();
         }
-        else if (enemyName.Equals("ChampimudoFurioso"))
+        else if (enemyName.Equals("Absorbedora"))
         {
-            champimudoFuriosoObject.transform.position = new Vector3(51.5f, 2.62f, 56.53f);
-            enemigo = champimudoFuriosoObject.GetComponent<Enemy>();
+            absorbedoraObject.transform.position = new Vector3(9.37f, 1.01f, 25.41f);
+            enemigo = absorbedoraObject.GetComponent<Enemy>();
         }
-        else if (enemyName.Equals("Florhada"))
+        else if (enemyName.Equals("CabezaCarnivora"))
         {
-            florhadaObject.transform.position = new Vector3(51.5f, 2.62f, 56.53f);
-            enemigo = florhadaObject.GetComponent<Enemy>();
-        }
-        else if (enemyName.Equals("Trifauces"))
-        {
-            trifaucesObject.transform.position = new Vector3(51.5f, 2.62f, 56.53f);
-            enemigo = trifaucesObject.GetComponent<Enemy>();
-        }
-        else if(enemyName.Equals("Scarab"))
-        {
-            scarabObject.transform.position = new Vector3(51.5f, 2.62f, 56.53f);
-            enemigo = scarabObject.GetComponent<Enemy>();
+            cabezaCarnivoraObject.transform.position = new Vector3(9.37f, 1.01f, 40.41f);
+            enemigo = cabezaCarnivoraObject.GetComponent<Enemy>();
         }
         enemigo.InitializeEnemy(enemyName);
     }
@@ -135,6 +123,21 @@ public class Combate : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown("f"))
+        {
+            if (mensajeVictoria.active || mensajeDerrota.active)
+            {   
+                ReturnToMap("Desierto Espejismo");
+            }
+        }
+        if (mensajeVictoria.active || mensajeDerrota.active)
+        {
+            HabilitarCursor();
+        }
+        else
+        {
+            DeshabilitarCursor();
+        }
         if (Input.GetKeyDown(KeyCode.UpArrow) && activeAzul)
         {
             Destroy(notaAzul);
@@ -163,6 +166,18 @@ public class Combate : MonoBehaviour
             //SonidoRojo.GetComponent<AudioSource>().Play();
             NotaAcertada();
         }
+    }
+
+    void HabilitarCursor()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+
+    void DeshabilitarCursor()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void NotaAcertada()
@@ -209,25 +224,17 @@ public class Combate : MonoBehaviour
 
     void DestroyEnemy()
     {
-        if (database.LoadEnemyName().Equals("Champimudo"))
+        if (database.LoadEnemyName().Equals("Alaguijon"))
         {
-            Destroy(champimudoObject, 1.4f);
+            Destroy(alaguijonObject, 1.4f);
         }
-        else if (database.LoadEnemyName().Equals("ChampimudoFurioso"))
+        else if (database.LoadEnemyName().Equals("Absorbedora"))
         {
-            Destroy(champimudoFuriosoObject, 1.4f);
+            Destroy(absorbedoraObject, 1.4f);
         }
-        else if (database.LoadEnemyName().Equals("Florhada"))
+        else if (database.LoadEnemyName().Equals("CabezaCarnivora"))
         {
-            Destroy(florhadaObject, 1f);
-        }
-        else if (database.LoadEnemyName().Equals("Trifauces"))
-        {
-            Destroy(trifaucesObject, 1f);
-        }
-        else if (database.LoadEnemyName().Equals("Scarab"))
-        {
-            Destroy(scarabObject, 1f);
+            Destroy(cabezaCarnivoraObject, 1f);
         }
     }
 
@@ -266,6 +273,7 @@ public class Combate : MonoBehaviour
 
     public void ReturnToMap(string sceneName)
     {
+        database.SaveDesdeCombate(true);
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }
 
@@ -273,59 +281,16 @@ public class Combate : MonoBehaviour
     {
         switch (name)
         {
-            case "ch1":
-                database.SaveCh1("false");
+            case "al1":
+                database.SaveAl1("false");
                 break;
-            case "ch2":
-                database.SaveCh2("false");
+            case "ab1":
+                database.SaveAb1("false");
                 break;
-            case "ch3":
-                database.SaveCh3("false");
-                break;
-            case "ch4":
-                database.SaveCh4("false");
-                break;
-            case "ch5":
-                database.SaveCh5("false");
-                break;
-            case "chf1":
-                database.SaveChF1("false");
-                break;
-            case "chf2":
-                database.SaveChF2("false");
-                break;
-            case "chf3":
-                database.SaveChF3("false");
-                break;
-            case "chf4":
-                database.SaveChF4("false");
-                break;
-            case "chf5":
-                database.SaveChF5("false");
-                break;
-            case "fh1":
-                database.SaveFh1("false");
-                break;
-            case "fh2":
-                database.SaveFh2("false");
-                break;
-            case "fh3":
-                database.SaveFh3("false");
-                break;
-            case "fh4":
-                database.SaveFh4("false");
-                break;
-            case "fh5":
-                database.SaveFh5("false");
-                break;
-            case "tr1":
-                database.SaveTr1("false");
-                break;
-            case "sc1":
-                database.SaveSc1("false");
+            case "ca1":
+                database.SaveCa1("false");
                 break;
             default:
-                database.SaveSc1("false");
                 break;
         }
     }

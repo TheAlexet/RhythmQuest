@@ -90,6 +90,7 @@ public class Game : MonoBehaviour
 		DestroyPickUps();
 		objetoColisionado = null;
 		vcam = camara.GetComponent<CinemachineFreeLook>();
+		database.SaveMapLevel("Malarcier");
 	}
 
 	void CheckState()
@@ -106,11 +107,23 @@ public class Game : MonoBehaviour
 			database.SaveFirstTime(false);
 			database.SaveObjetosRecogidos(0);
 			musicaMalarcier.GetComponent<AudioSource>().Stop();
-			//hole.SetActive(false);
+			hole.SetActive(false);
 			OpenControles();
 		}
-		else
+		else if (database.LoadDesiertoAMalarcier())
 		{
+			Debug.Log("Malarcier");
+			InitializeEnemies();
+			DestroyEnemy();
+			database.SaveDesiertoAMalarcier(false);
+			GetComponent<CharacterController>().enabled = false;
+			GameObject.Find("Player").transform.position = new Vector3(16.26f, 0.37f, 17f);
+			GameObject.Find("Player").transform.eulerAngles = new Vector3(GameObject.Find("Player").transform.eulerAngles.x, GameObject.Find("Player").transform.eulerAngles.y + 90, GameObject.Find("Player").transform.eulerAngles.z);
+			GetComponent<CharacterController>().enabled = true;
+		}
+		else if (database.LoadDesdeCombate())
+		{
+			database.SaveDesdeCombate(false);
 			bool isWin = database.LoadIsWin();
 			if (isWin)
 			{
@@ -130,7 +143,17 @@ public class Game : MonoBehaviour
 				GetComponent<CharacterController>().enabled = true;
 			}
 		}
+		else
+		{
+			Debug.Log("4");
+			DestroyEnemy();
+			GetComponent<CharacterController>().enabled = false;
+			GameObject.Find("Player").transform.position = database.LoadPlayerPosition();
+			GameObject.Find("Player").transform.rotation = database.LoadPlayerRotation();
+			GetComponent<CharacterController>().enabled = true;
+		}
 	}
+
 
 	void InitializePlayer()
 	{
@@ -839,7 +862,7 @@ public class Game : MonoBehaviour
 			if (database.LoadSiguienteConversacion() == 5)
 			{
 				musicaMalarcier.GetComponent<AudioSource>().Play();
-				//hole.SetActive(true);
+				hole.SetActive(true);
 				database.SaveFirstTime2(true);
 			}
 		}

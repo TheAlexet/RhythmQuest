@@ -263,6 +263,41 @@ public class Database : MonoBehaviour
         return PlayerPrefs.GetInt("objetosRecogidos", 0);
     }
 
+    public void SaveDesdeCombate(bool b)
+    {
+        if (b)
+        {
+            PlayerPrefs.SetString("desdeCombate", "true");
+        }
+        else
+        {
+            PlayerPrefs.SetString("desdeCombate", "false");
+        }
+
+    }
+
+    public bool LoadDesdeCombate()
+    {
+        if (PlayerPrefs.GetString("desdeCombate", "true").Equals("true"))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void SaveMapLevel(string value)
+    {
+        PlayerPrefs.SetString("mapLevel", value);
+    }
+
+    public string LoadMapLevel()
+    {
+        return PlayerPrefs.GetString("mapLevel", "Malarcier");
+    }
+
     //---------------------------------------------------------------------Pociones de vida
     public void SaveHP1(string value)
     {
@@ -514,6 +549,30 @@ public class Database : MonoBehaviour
     public bool LoadFirstTime2()
     {
         if (PlayerPrefs.GetString("firstTime2", "true").Equals("true"))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void SaveDesiertoAMalarcier(bool b)
+    {
+        if (b)
+        {
+            PlayerPrefs.SetString("desiertoAMalarcier", "true");
+        }
+        else
+        {
+            PlayerPrefs.SetString("desiertoAMalarcier", "false");
+        }
+    }
+
+    public bool LoadDesiertoAMalarcier()
+    {
+        if (PlayerPrefs.GetString("desiertoAMalarcier", "true").Equals("true"))
         {
             return true;
         }

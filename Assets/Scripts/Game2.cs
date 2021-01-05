@@ -82,6 +82,7 @@ public class Game2 : MonoBehaviour
 		DestroyPickUps();
 		objetoColisionado = null;
 		vcam = camara.GetComponent<CinemachineFreeLook>();
+		database.SaveMapLevel("Desierto Espejismo");
 	}
 
 	void CheckState()
@@ -89,13 +90,17 @@ public class Game2 : MonoBehaviour
 
 		if (database.LoadFirstTime2())
 		{
+			GetComponent<CharacterController>().enabled = false;
+			GameObject.Find("Player").transform.position = new Vector3(7.16f, 0.965f, 133.52f);
+			GetComponent<CharacterController>().enabled = true;
 			database.SaveFirstTime2(false);
-			InitializeEnemies();
+			ResetEnemies();
 			DestroyEnemy();
 			musicaDesiertoEspejismo.GetComponent<AudioSource>().Stop();
 		}
-		else
+		else if (database.LoadDesdeCombate())
 		{
+			database.SaveDesdeCombate(false);
 			bool isWin = database.LoadIsWin();
 			if (isWin)
 			{
@@ -114,6 +119,13 @@ public class Game2 : MonoBehaviour
 				GameObject.Find("Player").transform.position = new Vector3(7.16f, 0.965f, 133.52f);
 				GetComponent<CharacterController>().enabled = true;
 			}
+		}
+		else
+		{
+			GetComponent<CharacterController>().enabled = false;
+			GameObject.Find("Player").transform.position = database.LoadPlayerPosition();
+			GameObject.Find("Player").transform.rotation = database.LoadPlayerRotation();
+			GetComponent<CharacterController>().enabled = true;
 		}
 	}
 
@@ -563,23 +575,23 @@ public class Game2 : MonoBehaviour
 	{
 		if (objetoColisionado.name.Equals("HealthPotion"))
 		{
-			database.SaveHP1("false");
+			database.SaveHP21("false");
 		}
 		if (objetoColisionado.name.Equals("HealthPotion2"))
 		{
-			database.SaveHP2("false");
+			database.SaveHP22("false");
 		}
 		if (objetoColisionado.name.Equals("HealthPotion3"))
 		{
-			database.SaveHP3("false");
+			database.SaveHP23("false");
 		}
 		if (objetoColisionado.name.Equals("XPPotion"))
 		{
-			database.SaveXP1("false");
+			database.SaveXP21("false");
 		}
 		if (objetoColisionado.name.Equals("XPPotion2"))
 		{
-			database.SaveXP2("false");
+			database.SaveXP22("false");
 		}
 	}
 
@@ -599,6 +611,7 @@ public class Game2 : MonoBehaviour
 		{
 			GameObject.Find("CabezaCarnivora").GetComponent<BoxCollider>().enabled = false;
 			Destroy(GameObject.Find("CabezaCarnivora"));
+			hole.SetActive(true);
 		}
 	}
 

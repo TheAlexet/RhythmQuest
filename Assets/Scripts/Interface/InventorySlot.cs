@@ -51,4 +51,16 @@ public class InventorySlot : MonoBehaviour
         game.GetComponent<Game>().RemoveItem(item, true);
         ClearSlot();
     }
+
+    public void OnRemoveButton2()
+    {
+        game.GetComponent<Game2>().RemoveItem(item, false);
+        ClearSlot();
+    }
+
+    public void SlotUsado2()
+    {
+        game.GetComponent<Game2>().RemoveItem(item, true);
+        ClearSlot();
+    }
 }
