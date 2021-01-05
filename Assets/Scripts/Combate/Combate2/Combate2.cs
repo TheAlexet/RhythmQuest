@@ -85,7 +85,7 @@ public class Combate2 : MonoBehaviour
         }
         else if (enemyName.Equals("CabezaCarnivora"))
         {
-            cabezaCarnivoraObject.transform.position = new Vector3(9.37f, 1.01f, 40.41f);
+            cabezaCarnivoraObject.transform.position = new Vector3(-2f, -1.7f, -36.7f);
             enemigo = cabezaCarnivoraObject.GetComponent<Enemy>();
         }
         enemigo.InitializeEnemy(enemyName);
@@ -284,8 +284,38 @@ public class Combate2 : MonoBehaviour
             case "al1":
                 database.SaveAl1("false");
                 break;
+            case "al2":
+                database.SaveAl2("false");
+                break;
+            case "al3":
+                database.SaveAl3("false");
+                break;
+            case "al4":
+                database.SaveAl4("false");
+                break;
+            case "al5":
+                database.SaveAl5("false");
+                break;
+            case "al6":
+                database.SaveAl6("false");
+                break;
+            case "al7":
+                database.SaveAl7("false");
+                break;
+            case "al8":
+                database.SaveAl8("false");
+                break;
             case "ab1":
                 database.SaveAb1("false");
+                break;
+            case "ab2":
+                database.SaveAb2("false");
+                break;
+            case "ab3":
+                database.SaveAb3("false");
+                break;
+            case "ab4":
+                database.SaveAb4("false");
                 break;
             case "ca1":
                 database.SaveCa1("false");

@@ -602,10 +602,60 @@ public class Game2 : MonoBehaviour
 			GameObject.Find("Alaguijon1").GetComponent<BoxCollider>().enabled = false;
 			Destroy(GameObject.Find("Alaguijon1"));
 		}
+		if (database.LoadAl2().Equals("false"))
+		{
+			GameObject.Find("Alaguijon2").GetComponent<BoxCollider>().enabled = false;
+			Destroy(GameObject.Find("Alaguijon2"));
+		}
+		if (database.LoadAl3().Equals("false"))
+		{
+			GameObject.Find("Alaguijon3").GetComponent<BoxCollider>().enabled = false;
+			Destroy(GameObject.Find("Alaguijon3"));
+		}
+		if (database.LoadAl4().Equals("false"))
+		{
+			GameObject.Find("Alaguijon4").GetComponent<BoxCollider>().enabled = false;
+			Destroy(GameObject.Find("Alaguijon4"));
+		}
+		if (database.LoadAl5().Equals("false"))
+		{
+			GameObject.Find("Alaguijon5").GetComponent<BoxCollider>().enabled = false;
+			Destroy(GameObject.Find("Alaguijon5"));
+		}
+		if (database.LoadAl6().Equals("false"))
+		{
+			GameObject.Find("Alaguijon6").GetComponent<BoxCollider>().enabled = false;
+			Destroy(GameObject.Find("Alaguijon6"));
+		}
+		if (database.LoadAl7().Equals("false"))
+		{
+			GameObject.Find("Alaguijon7").GetComponent<BoxCollider>().enabled = false;
+			Destroy(GameObject.Find("Alaguijon7"));
+		}
+		if (database.LoadAl8().Equals("false"))
+		{
+			GameObject.Find("Alaguijon8").GetComponent<BoxCollider>().enabled = false;
+			Destroy(GameObject.Find("Alaguijon8"));
+		}
 		if (database.LoadAb1().Equals("false"))
 		{
 			GameObject.Find("Absorbedora1").GetComponent<BoxCollider>().enabled = false;
 			Destroy(GameObject.Find("Absorbedora1"));
+		}
+		if (database.LoadAb2().Equals("false"))
+		{
+			GameObject.Find("Absorbedora2").GetComponent<BoxCollider>().enabled = false;
+			Destroy(GameObject.Find("Absorbedora2"));
+		}
+		if (database.LoadAb3().Equals("false"))
+		{
+			GameObject.Find("Absorbedora3").GetComponent<BoxCollider>().enabled = false;
+			Destroy(GameObject.Find("Absorbedora3"));
+		}
+		if (database.LoadAb4().Equals("false"))
+		{
+			GameObject.Find("Absorbedora4").GetComponent<BoxCollider>().enabled = false;
+			Destroy(GameObject.Find("Absorbedora4"));
 		}
 		if (database.LoadCa1().Equals("false"))
 		{
@@ -618,14 +668,34 @@ public class Game2 : MonoBehaviour
 	void InitializeEnemies()
 	{
 		database.SaveAl1("false");
+		database.SaveAl2("false");
+		database.SaveAl3("false");
+		database.SaveAl4("false");
+		database.SaveAl5("false");
+		database.SaveAl6("false");
+		database.SaveAl7("false");
+		database.SaveAl8("false");
 		database.SaveAb1("false");
+		database.SaveAb2("false");
+		database.SaveAb3("false");
+		database.SaveAb4("false");
 		database.SaveCa1("false");
 	}
 
 	void ResetEnemies()
 	{
 		database.SaveAl1("true");
+		database.SaveAl2("true");
+		database.SaveAl3("true");
+		database.SaveAl4("true");
+		database.SaveAl5("true");
+		database.SaveAl6("true");
+		database.SaveAl7("true");
+		database.SaveAl8("true");
 		database.SaveAb1("true");
+		database.SaveAb2("true");
+		database.SaveAb3("true");
+		database.SaveAb4("true");
 		database.SaveCa1("true");
 	}
 

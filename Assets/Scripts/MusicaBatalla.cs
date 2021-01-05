@@ -13,7 +13,7 @@ public class MusicaBatalla : MonoBehaviour
         musicaNormal = GameObject.Find("MusicNormal").GetComponent<AudioSource>();
         musicaScarab = GameObject.Find("MusicScarab").GetComponent<AudioSource>();
         database = GameObject.Find("Database").GetComponent<Database>();
-        if (database.LoadEnemyName().Equals("Scarab"))
+        if (database.LoadEnemyName().Equals("Scarab") || database.LoadEnemyName().Equals("CabezaCarnivora"))
         {
             musicaScarab.Play();
         }

@@ -646,7 +646,78 @@ public class Database : MonoBehaviour
         return PlayerPrefs.GetString("al1", "true");
     }
 
+    public void SaveAl2(string value)
+    {
+        PlayerPrefs.SetString("al2", value);
+    }
+
+    public string LoadAl2()
+    {
+        return PlayerPrefs.GetString("al2", "true");
+    }
+
+    public void SaveAl3(string value)
+    {
+        PlayerPrefs.SetString("al3", value);
+    }
+
+    public string LoadAl3()
+    {
+        return PlayerPrefs.GetString("al3", "true");
+    }
+
+    public void SaveAl4(string value)
+    {
+        PlayerPrefs.SetString("al4", value);
+    }
+
+    public string LoadAl4()
+    {
+        return PlayerPrefs.GetString("al4", "true");
+    }
+
+    public void SaveAl5(string value)
+    {
+        PlayerPrefs.SetString("al5", value);
+    }
+
+    public string LoadAl5()
+    {
+        return PlayerPrefs.GetString("al5", "true");
+    }
+
+    public void SaveAl6(string value)
+    {
+        PlayerPrefs.SetString("al6", value);
+    }
+
+    public string LoadAl6()
+    {
+        return PlayerPrefs.GetString("al6", "true");
+    }
+
+    public void SaveAl7(string value)
+    {
+        PlayerPrefs.SetString("al7", value);
+    }
+
+    public string LoadAl7()
+    {
+        return PlayerPrefs.GetString("al7", "true");
+    }
+
+    public void SaveAl8(string value)
+    {
+        PlayerPrefs.SetString("al8", value);
+    }
+
+    public string LoadAl8()
+    {
+        return PlayerPrefs.GetString("al8", "true");
+    }
+
     //---------------------------------------------------------------------Absorbedoras
+
     public void SaveAb1(string value)
     {
         PlayerPrefs.SetString("ab1", value);
@@ -655,6 +726,36 @@ public class Database : MonoBehaviour
     public string LoadAb1()
     {
         return PlayerPrefs.GetString("ab1", "true");
+    }
+
+    public void SaveAb2(string value)
+    {
+        PlayerPrefs.SetString("ab2", value);
+    }
+
+    public string LoadAb2()
+    {
+        return PlayerPrefs.GetString("ab2", "true");
+    }
+
+    public void SaveAb3(string value)
+    {
+        PlayerPrefs.SetString("ab3", value);
+    }
+
+    public string LoadAb3()
+    {
+        return PlayerPrefs.GetString("ab3", "true");
+    }
+
+    public void SaveAb4(string value)
+    {
+        PlayerPrefs.SetString("ab4", value);
+    }
+
+    public string LoadAb4()
+    {
+        return PlayerPrefs.GetString("ab4", "true");
     }
 
     //---------------------------------------------------------------------CabezaCarnivora

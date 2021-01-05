@@ -27,7 +27,7 @@ public class Nota2 : MonoBehaviour
         if (database.LoadStopCircles().Equals("false"))
         {
             transform.Translate(Vector3.right * Time.deltaTime * 4);
-            if (this.gameObject.transform.position.x > 16.74f)
+            if (this.gameObject.transform.position.x > 18f)
             {
                 Destroy(this.gameObject);
                 combate.NotaFallada();
