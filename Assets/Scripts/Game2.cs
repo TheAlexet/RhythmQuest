@@ -111,7 +111,7 @@ public class Game2 : MonoBehaviour
 				DestroyEnemy();
 				jugador.SetHP(jugador.GetMaxHP());
 				GetComponent<CharacterController>().enabled = false;
-				GameObject.Find("Player").transform.position = new Vector3(7.16f, 0.6f, 134.49f);
+				GameObject.Find("Player").transform.position = new Vector3(7.16f, 0.965f, 133.52f);
 				GetComponent<CharacterController>().enabled = true;
 			}
 		}
@@ -613,6 +613,7 @@ public class Game2 : MonoBehaviour
 	{
 		database.SaveAl1("true");
 		database.SaveAb1("true");
+		database.SaveCa1("true");
 	}
 
 	void OnApplicationQuit()
