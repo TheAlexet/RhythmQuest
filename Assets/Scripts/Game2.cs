@@ -94,7 +94,7 @@ public class Game2 : MonoBehaviour
 			GameObject.Find("Player").transform.position = new Vector3(7.16f, 0.965f, 133.52f);
 			GetComponent<CharacterController>().enabled = true;
 			database.SaveFirstTime2(false);
-			ResetEnemies();
+			InitializeEnemies();
 			DestroyEnemy();
 			musicaDesiertoEspejismo.GetComponent<AudioSource>().Stop();
 		}
@@ -661,25 +661,26 @@ public class Game2 : MonoBehaviour
 		{
 			GameObject.Find("CabezaCarnivora").GetComponent<BoxCollider>().enabled = false;
 			Destroy(GameObject.Find("CabezaCarnivora"));
+			musicaDesiertoEspejismo.GetComponent<AudioSource>().Play();
 			hole.SetActive(true);
 		}
 	}
 
 	void InitializeEnemies()
 	{
-		database.SaveAl1("false");
-		database.SaveAl2("false");
-		database.SaveAl3("false");
-		database.SaveAl4("false");
-		database.SaveAl5("false");
-		database.SaveAl6("false");
-		database.SaveAl7("false");
-		database.SaveAl8("false");
-		database.SaveAb1("false");
-		database.SaveAb2("false");
-		database.SaveAb3("false");
-		database.SaveAb4("false");
-		database.SaveCa1("false");
+		database.SaveAl1("true");
+		database.SaveAl2("true");
+		database.SaveAl3("true");
+		database.SaveAl4("true");
+		database.SaveAl5("true");
+		database.SaveAl6("true");
+		database.SaveAl7("true");
+		database.SaveAl8("true");
+		database.SaveAb1("true");
+		database.SaveAb2("true");
+		database.SaveAb3("true");
+		database.SaveAb4("true");
+		database.SaveCa1("true");
 	}
 
 	void ResetEnemies()
@@ -696,7 +697,6 @@ public class Game2 : MonoBehaviour
 		database.SaveAb2("true");
 		database.SaveAb3("true");
 		database.SaveAb4("true");
-		database.SaveCa1("true");
 	}
 
 	void OnApplicationQuit()

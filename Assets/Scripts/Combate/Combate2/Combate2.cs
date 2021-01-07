@@ -85,7 +85,7 @@ public class Combate2 : MonoBehaviour
         }
         else if (enemyName.Equals("CabezaCarnivora"))
         {
-            cabezaCarnivoraObject.transform.position = new Vector3(-2f, -1.7f, -36.7f);
+            cabezaCarnivoraObject.transform.position = new Vector3(9.37f, 1.01f, 25.41f);
             enemigo = cabezaCarnivoraObject.GetComponent<Enemy>();
         }
         enemigo.InitializeEnemy(enemyName);

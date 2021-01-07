@@ -80,7 +80,7 @@ public class Enemy : MonoBehaviour
 			attack = 20;
 			maxHP = 1000;
 			currentHP = 1000;
-			xpGiven = 2000;
+			xpGiven = 1000;
 		}
 	}
 
