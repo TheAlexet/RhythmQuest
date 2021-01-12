@@ -582,6 +582,30 @@ public class Database : MonoBehaviour
         }
     }
 
+    public void SaveMalarcierADesierto(bool b)
+    {
+        if (b)
+        {
+            PlayerPrefs.SetString("malarcierADesierto", "true");
+        }
+        else
+        {
+            PlayerPrefs.SetString("malarcierADesierto", "false");
+        }
+    }
+
+    public bool LoadMalarcierADesierto()
+    {
+        if (PlayerPrefs.GetString("malarcierADesierto", "true").Equals("true"))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     //---------------------------------------------------------------------Pociones de vida
     public void SaveHP21(string value)
     {

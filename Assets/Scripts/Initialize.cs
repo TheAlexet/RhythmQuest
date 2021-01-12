@@ -51,6 +51,7 @@ public class Initialize : MonoBehaviour
 		{
 			database.SaveFirstTime(false);
 			database.SaveDesiertoAMalarcier(false);
+			database.SaveMalarcierADesierto(false);
 			database.SaveDesdeCombate(false);
 			if (database.LoadMapLevel().Equals("Malarcier"))
 			{
@@ -68,7 +69,9 @@ public class Initialize : MonoBehaviour
 		if(inputText.text != "")
 		{
 			database.SaveFirstTime(true);
+			database.SaveFirstTime2(true);
 			database.SaveDesiertoAMalarcier(false);
+			database.SaveMalarcierADesierto(false);
 			database.SaveDesdeCombate(false);
 			UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
 		}

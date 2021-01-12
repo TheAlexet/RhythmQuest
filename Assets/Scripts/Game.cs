@@ -112,7 +112,6 @@ public class Game : MonoBehaviour
 		}
 		else if (database.LoadDesiertoAMalarcier())
 		{
-			Debug.Log("Malarcier");
 			InitializeEnemies();
 			DestroyEnemy();
 			database.SaveDesiertoAMalarcier(false);
@@ -145,7 +144,6 @@ public class Game : MonoBehaviour
 		}
 		else
 		{
-			Debug.Log("4");
 			DestroyEnemy();
 			GetComponent<CharacterController>().enabled = false;
 			GameObject.Find("Player").transform.position = database.LoadPlayerPosition();
@@ -863,7 +861,6 @@ public class Game : MonoBehaviour
 			{
 				musicaMalarcier.GetComponent<AudioSource>().Play();
 				hole.SetActive(true);
-				database.SaveFirstTime2(true);
 			}
 		}
 	}

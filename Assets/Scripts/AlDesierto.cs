@@ -18,7 +18,7 @@ public class AlDesierto : MonoBehaviour
     {
         if (col.tag == "Player")
         {
-            database.SaveFirstTime2(true);
+            database.SaveMalarcierADesierto(true);
             SceneManager.LoadScene("Desierto Espejismo");
         }
 

@@ -87,16 +87,26 @@ public class Game2 : MonoBehaviour
 
 	void CheckState()
 	{
-
 		if (database.LoadFirstTime2())
 		{
 			GetComponent<CharacterController>().enabled = false;
 			GameObject.Find("Player").transform.position = new Vector3(7.16f, 0.965f, 133.52f);
 			GetComponent<CharacterController>().enabled = true;
 			database.SaveFirstTime2(false);
+			database.SaveMalarcierADesierto(false);
 			InitializeEnemies();
 			DestroyEnemy();
 			musicaDesiertoEspejismo.GetComponent<AudioSource>().Stop();
+		}
+		else if (database.LoadMalarcierADesierto())
+		{
+			ResetEnemies();
+			DestroyEnemy();
+			database.SaveMalarcierADesierto(false);
+			GetComponent<CharacterController>().enabled = false;
+			GameObject.Find("Player").transform.position = new Vector3(7.16f, 0.965f, 133.52f);
+			GameObject.Find("Player").transform.eulerAngles = new Vector3(16.26f, 0.37f, 17f);
+			GetComponent<CharacterController>().enabled = true;
 		}
 		else if (database.LoadDesdeCombate())
 		{
@@ -122,6 +132,7 @@ public class Game2 : MonoBehaviour
 		}
 		else
 		{
+			DestroyEnemy();
 			GetComponent<CharacterController>().enabled = false;
 			GameObject.Find("Player").transform.position = database.LoadPlayerPosition();
 			GameObject.Find("Player").transform.rotation = database.LoadPlayerRotation();
